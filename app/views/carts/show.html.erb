@@ -1,9 +1,10 @@
-<%= total_price = 0.0 %>
+<% total_price = 0.0 %>
 
 <% @cart.each do |product_id, quant| %>
 
-	<%= Product.find(product_id).name + ": " + quant %>
-	<% total_price += quant * Product.find(product_id).price %>
+	<%= Product.find(product_id).name + ": " + quant.to_s %>
+	<% total_price += quant.to_f * Product.find(product_id).price.to_f %>
+	<br>
 <% end %>
 
 

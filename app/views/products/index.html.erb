@@ -1,6 +1,6 @@
 <h1>All Products</h1>
 
-<%= form_tag edit_cart_path do %>
+<%= form_tag(cart_path, :method => "put") do %>
 
 	<ol>
 	<% Product.all.each do |product| %>
@@ -10,7 +10,7 @@
 			<br>
 
 			<%= label_tag "Change Quantity"%>
-			<%= number_field_tag product.id%>
+			<%= number_field_tag "cart[#{product.id}]"%>
 		</li>
 
 	<% end %>

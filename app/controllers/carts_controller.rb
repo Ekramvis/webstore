@@ -1,12 +1,13 @@
 class CartsController < ApplicationController
 
 	# create an empty cart for a new user
-	def create
-		session[:cart] = Hash.new(0)
-	end
+	# def create
+	# 	session[:cart] = {}
+	# end
 
 	def update
-		params.each { |key, value| session[:cart][key] += value }
+		params["cart"].each { |key, value| session[:cart][key] += value.to_i }
+		redirect_to cart_path
 	end
 
 	def show

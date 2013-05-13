@@ -10,12 +10,18 @@ class SessionsController < ApplicationController
 		if user && user.authenticate(params[:password])
 			session[:user_id] = user.id
 			session[:token] = params[:authenticity_token]
-			# redirect_to user_path(user.id)
+			session[:cart] = Hash.new(0)
+			redirect_to products_url
 		else
 			render :new
 		end
 	end
 
+	def destroy
+		reset_session
+
+		redirect_to products_url
+	end
 
 
 end
