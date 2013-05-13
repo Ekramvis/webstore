@@ -1,3 +1,13 @@
+
+<br>
+<% flash.notice.each do |msg| %>
+	<%= msg %>
+	<br>
+<% end %>
+
+
+<br>
+<br>
 <% total_price = 0.0 %>
 
 <% @cart.each do |product_id, quant| %>

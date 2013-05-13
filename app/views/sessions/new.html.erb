@@ -1,4 +1,9 @@
 <h1>Log In</h1>
+<br>
+<% flash.notice.each do |msg| %>
+	<%= msg %>
+	<br>
+<% end %>
 
 <%= form_tag session_path do %>
 	<%= label_tag :email %>
