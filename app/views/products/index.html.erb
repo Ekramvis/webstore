@@ -1,0 +1,21 @@
+<h1>All Products</h1>
+
+<%= form_tag edit_cart_path do %>
+
+	<ol>
+	<% Product.all.each do |product| %>
+		<li>
+
+			<%= product.name + "  $" + product.price.to_s %>
+			<br>
+
+			<%= label_tag "Change Quantity"%>
+			<%= number_field_tag product.id%>
+		</li>
+
+	<% end %>
+	</ol>
+
+	<%= submit_tag "Update Cart"%>
+<% end %>
+
